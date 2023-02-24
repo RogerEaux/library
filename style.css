@@ -11,3 +11,24 @@
   padding: 0;
   margin: 0;
 }
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  font-size: 1.6rem;
+  text-align: start;
+}
+
+.main {
+  flex: 1;
+}
+
+.footer {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+}
