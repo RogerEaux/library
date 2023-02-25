@@ -1,7 +1,6 @@
 const library = [];
 
 function Book(bookInfo) {
-  console.log(bookInfo);
   this.title = bookInfo[0];
   this.author = bookInfo[1];
   this.pages = bookInfo[2];
@@ -34,12 +33,38 @@ function getData(form) {
   return bookInfo;
 }
 
+function createBookCard(book) {
+  const booksDisplay = document.querySelector('.display-books');
+  const card = document.createElement('div');
+  const title = document.createElement('p');
+  const author = document.createElement('p');
+  const pages = document.createElement('p');
+  const read = document.createElement('button');
+
+  card.classList.add('card');
+
+  title.textContent = book.title;
+  author.textContent = book.author;
+  pages.textContent = book.pages;
+  if (book.read === true) {
+    read.classList.toggle('read');
+  }
+
+  card.appendChild(title);
+  card.appendChild(author);
+  card.appendChild(pages);
+  card.appendChild(read);
+  booksDisplay.appendChild(card);
+}
+
 function submit() {
   const form = document.querySelector('.new-book-form');
 
   form.addEventListener('submit', function (event) {
     event.preventDefault();
     let book = new Book(getData(event.target));
+    library.push(book);
+    createBookCard(book);
   });
 }
 
