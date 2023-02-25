@@ -54,7 +54,7 @@ function attachEventListeners(book, read, remove) {
 
   remove.addEventListener('click', () => {
     const index = parseInt(remove.getAttribute('data-index'));
-    library.splice(index, index + 1);
+    library.splice(index, 1);
     createBooksDisplay();
   });
 }
