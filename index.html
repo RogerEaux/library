@@ -26,7 +26,27 @@
 
   <div class="modal">
     <div class="modal-content">
-
+      <form class="new-book-form">
+        <p class="form-element">
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title" required>
+        </p>
+        <p class="form-element">
+          <label for="author">Author</label>
+          <input type="text" id="author" name="author" required>
+        </p>
+        <p class="form-element">
+          <label for="pages">Pages</label>
+          <input type="number" id="pages" name="pages" required>
+        </p>
+        <p class="form-element">
+          <label for="read">Have you read it?</label>
+          <input type="checkbox" id="read" name="read" value="read">
+        </p>
+        <p class="form-element">
+          <button type="submit">Add book</button>
+        </p>
+      </form>
     </div>
   </div>
 
