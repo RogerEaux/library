@@ -43,10 +43,12 @@ function createBookCard(book) {
 
   card.classList.add('card');
 
-  title.textContent = book.title;
-  author.textContent = book.author;
-  pages.textContent = book.pages;
+  title.textContent = `"${book.title}"`;
+  author.textContent = `by ${book.author}`;
+  pages.textContent = `${book.pages} pages`;
+  read.textContent = "Haven't read it yet";
   if (book.read === true) {
+    read.textContent = 'Have read it';
     read.classList.toggle('read');
   }
 
@@ -62,9 +64,13 @@ function submit() {
 
   form.addEventListener('submit', function (event) {
     event.preventDefault();
+
     let book = new Book(getData(event.target));
     library.push(book);
     createBookCard(book);
+
+    const modal = document.querySelector('.modal');
+    modal.style.visibility = 'hidden';
   });
 }
 
