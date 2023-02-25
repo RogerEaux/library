@@ -74,14 +74,14 @@ function submit() {
   const form = document.querySelector('.new-book-form');
 
   form.addEventListener('submit', function (event) {
-    event.preventDefault();
-
     let book = new Book(getData(event.target));
+    const modal = document.querySelector('.modal');
+
+    event.preventDefault();
     library.push(book);
     createBookCard(book);
-
-    const modal = document.querySelector('.modal');
     modal.style.visibility = 'hidden';
+    form.reset();
   });
 }
 
