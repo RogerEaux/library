@@ -46,6 +46,19 @@ function checkReadState(book, read) {
   }
 }
 
+function attachEventListeners(book, read, remove) {
+  read.addEventListener('click', () => {
+    book.read = !book.read;
+    checkReadState(book, read);
+  });
+
+  remove.addEventListener('click', () => {
+    const index = parseInt(remove.getAttribute('data-index'));
+    library.splice(index, index + 1);
+    createBooksDisplay();
+  });
+}
+
 function createCard(book) {
   const card = document.createElement('div');
   const title = document.createElement('p');
@@ -63,16 +76,7 @@ function createCard(book) {
   remove.textContent = 'Remove';
   checkReadState(book, read);
 
-  read.addEventListener('click', () => {
-    book.read = !book.read;
-    checkReadState(book, read);
-  });
-
-  remove.addEventListener('click', () => {
-    const index = parseInt(remove.getAttribute('data-index'));
-    library.splice(index, index + 1);
-    createBooksDisplay();
-  });
+  attachEventListeners(book, read, remove);
 
   card.appendChild(title);
   card.appendChild(author);
