@@ -34,19 +34,8 @@ function getData(form) {
   return bookInfo;
 }
 
-function submit() {
-  const form = document.querySelector('.new-book-form');
-
-  form.addEventListener('submit', function (event) {
-    event.preventDefault();
-    let book = new Book(getData(event.target));
-    console.log(book);
-  });
-}
-
 function setUp() {
   popUp();
-  submit();
 }
 
 setUp();
