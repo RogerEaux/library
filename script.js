@@ -1,12 +1,14 @@
 const library = [];
 
-function Book(bookInfo) {
-  this.title = bookInfo[0];
-  this.author = bookInfo[1];
-  this.pages = bookInfo[2];
-  this.read = false;
-  if (bookInfo[3]) {
-    this.read = true;
+class Book {
+  constructor(bookInfo) {
+    this.title = bookInfo[0];
+    this.author = bookInfo[1];
+    this.pages = bookInfo[2];
+    this.read = false;
+    if (bookInfo[3]) {
+      this.read = true;
+    }
   }
 }
 
@@ -112,6 +114,7 @@ function submit() {
     createBooksDisplay();
     modal.style.visibility = 'hidden';
     form.reset();
+    console.log(library);
   });
 }
 
