@@ -125,6 +125,14 @@ body {
   padding: 4px;
 }
 
+.form-element input:valid {
+  border: 2px solid var(--green);
+}
+
+.form-element input:invalid {
+  border: 2px solid var(--red);
+}
+
 .form-element input[type='text'],
 .form-element input[type='number'] {
   width: 100%;
